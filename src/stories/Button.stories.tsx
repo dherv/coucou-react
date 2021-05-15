@@ -1,37 +1,49 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
-
-import { Button, ButtonProps } from './Button';
+import { ReactChild, ReactElement } from 'react';
+import { BsFillChatDotsFill } from 'react-icons/bs';
+import { TiGroupOutline } from 'react-icons/ti';
+import { Meta, Story } from '@storybook/react';
+import { Button } from '../components/base/Button';
 
 export default {
-  title: 'Example/Button',
+  title: 'Styled/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<{icon: ReactElement, variant: "primary" | "secondary" | "stop";  size: "small" | "large", onClick: () => void, children: ReactChild}> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  icon: <BsFillChatDotsFill/>,
+  variant: "primary",
+  children: "chat"
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  variant: "secondary",
+  children: "chat"
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
-  label: 'Button',
+  children: "chat"
 };
 
 export const Small = Template.bind({});
 Small.args = {
+  icon: <TiGroupOutline/>,
   size: 'small',
-  label: 'Button',
+  variant: "secondary",
+  children: "group"
+};
+
+export const Stop = Template.bind({});
+Stop.args = {
+  size: 'large',
+  variant: "stop",
+  children: "end call"
 };
