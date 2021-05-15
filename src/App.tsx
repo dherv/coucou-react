@@ -1,8 +1,12 @@
 import React from 'react';
+import { GlobalStyle } from './styled/lib/styled.globals';
 
 function App() {
   return (
-    <div>coucou</div>
+    <>
+      <GlobalStyle />
+      <div>coucou</div>
+    </>
   );
 }
 
