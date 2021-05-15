@@ -5,11 +5,9 @@ import { Meta, Story } from '@storybook/react';
 import { Button } from '../components/base/Button';
 
 export default {
-  title: 'Styled/Button',
+  title: 'Base/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
 } as Meta;
 
 const Template: Story<{icon: ReactElement, variant: "primary" | "secondary" | "stop";  size: "small" | "large", onClick: () => void, children: ReactChild}> = (args) => <Button {...args} />;
