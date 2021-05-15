@@ -5,12 +5,13 @@ name: Node.js CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   tests:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,20 +19,20 @@ jobs:
         node-version: [15.x]
 
     steps:
-      - name: checkout
-      - uses: actions/checkout@v2
+    - name: checkout
+    - uses: actions/checkout@v2
 
-      - name: setup node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+    - name: setup node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: unit tests
-      - run: yarn install
-      - run: yarn ci
+    - name: unit tests
+    - run: yarn install
+    - run: yarn ci
 
-      - name: chromatic
-        uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    - name: chromatic
+      uses: chromaui/action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
