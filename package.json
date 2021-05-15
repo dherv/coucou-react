@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "chromatic": "npx chromatic --project-token 6a2f63befcb0"
   },
   "eslintConfig": {
     "extends": [
