@@ -19,3 +19,12 @@ export interface IThemeElement {
 export interface ITheme {
   page: IThemePage;
 }
+
+// User
+export interface IUser {
+  id: number;
+  name: string;
+  image?: string;
+  muted: boolean;
+  active: boolean;
+}

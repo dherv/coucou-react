@@ -1,20 +1,18 @@
 import { FC, ReactElement } from 'react';
-import styled from 'styled-components';
-import { Button as StyledButton } from '../../styled/Button';
+import { StyledButton, Wrapper } from './Button.styled';
 
-const Wrapper = styled.div`
-  margin-right: 8px;
-  height: 1em;
-`;
-
-export const Button: FC<{
+export interface ButtonProps {
   icon?: ReactElement;
   variant: "primary" | "secondary" | "stop";
-  size: "small" | "large";
+  size?: "small" | "large";
+  inverted?: boolean
+  className?: string;
   onClick: () => void;
-}> = ({ icon, children, size, variant, onClick }) => {
+}
+
+export const Button: FC<ButtonProps> = ({ icon, children, size, variant, inverted, className, onClick }) => {
   return (
-    <StyledButton size={size} variant={variant} onClick={onClick}>
+    <StyledButton className={className} inverted={inverted} size={size} variant={variant} onClick={onClick}>
       {icon && <Wrapper>{icon}</Wrapper>}
       <span>{children}</span>
     </StyledButton>

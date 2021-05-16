@@ -1,10 +1,20 @@
 import styled from 'styled-components';
-import { element } from './lib/styled.themes';
+import { element } from '../../styled/lib/styled.themes';
 
-const variant = (variant = "primary") => `
+const variant = (inverted: boolean | undefined) => (variant = "primary") => {
+  const invertedVariant = `
+  color: ${element[variant].background};
+  background: transparent;
+  border: 1px solid rgba(69, 90, 100, 0.6);
+  `;
+  
+  const regularVariant = `
   color: ${element[variant].color};
   background: ${element[variant].background};
 `;
+
+  return inverted ? invertedVariant : regularVariant;
+};
 
 const size = (size = "default") => {
   const sizes: { [key: string]: any } = {
@@ -19,13 +29,19 @@ const size = (size = "default") => {
   `;
 };
 
-export const Button = styled.button<{
-  variant: "primary" | "secondary" | "stop";  size: "small" | "large"
+export const StyledButton = styled.button<{
+  variant: "primary" | "secondary" | "stop";
+  size?: "small" | "large";
+  inverted?: boolean;
 }>`
   display: flex;
   align-items: center;
   text-transform: capitalize;
   ${(props) => size(props.size)};
-  ${(props) => variant(props.variant)}
+  ${(props) => variant(props.inverted)(props.variant)}
 `;
 
+export const Wrapper = styled.div`
+  margin-right: 8px;
+  height: 1em;
+`;

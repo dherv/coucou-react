@@ -6,7 +6,7 @@ export interface VideoProps {
   name: string;
   active: boolean;
   muted: boolean;
-  image: string;
+  image?: string;
 }
 
 export const Video: FC<VideoProps> = ({ name, image, active, muted }) => {

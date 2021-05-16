@@ -32,7 +32,7 @@ export const Video = styled.video`
 
 export const Figure = styled.figure<{ active: boolean }>`
   position: relative;
-  width: 300px;
+  max-width: 400px;
   height: 200px;
   padding: 2px;
   border-radius: 12px;
