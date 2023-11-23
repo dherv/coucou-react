@@ -1,10 +1,10 @@
-import 'jest-styled-components';
-import { render, screen } from '@testing-library/react';
-import { SampleUsers } from '../../samples/samples';
-import { VideoGrid } from './VideoGrid';
+import "jest-styled-components";
+import { render, screen } from "@testing-library/react";
+import { SampleUsers } from "../../samples/samples";
+import { VideoGrid } from "./VideoGrid";
 
 describe("VideoGrid component", () => {
-  const props = {users: SampleUsers};
+  const props = { users: SampleUsers };
 
   beforeEach(() => {
     render(<VideoGrid {...props} />);
@@ -21,5 +21,4 @@ describe("VideoGrid component", () => {
   test("should show each user muted icon", async () => {
     expect(screen.getAllByTitle("muted")).toHaveLength(4);
   });
-
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import WebFont from 'webfontloader';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -7,6 +8,12 @@ if (process.env.NODE_ENV === 'development') {
   const { worker } = require('./mocks/browser')
   worker.start()
 }
+
+WebFont.load({
+  google: {
+    families: ["Poppins:300,400,500,600,700", "sans-serif"],
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
